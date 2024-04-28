@@ -42,9 +42,6 @@ pacstrap /mnt base base-devel linux linux-firmware nano
 echo -e "\n"
 pacman --root /mnt -S intel-ucode networkmanager xfce4 xfce4-goodies xorg-xdm xorg-server xorg-xinit --noconfirm #-----------------------------------------------------------------------------------> Fehler: /proc muss gemounted sein!
 
-echo "Lightdm aktivieren"
-systemctl enable lightdm.service
-
 
 echo "Schritt 2.4 - fstab (File System Table) Datei erzeugen auf Grundlage der aktuellen Einbindungen & folgend prüfen: #"
 
