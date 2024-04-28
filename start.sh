@@ -18,7 +18,7 @@ echo "|   root-Partition:   n   Enter   Enter   Enter   Enter   |"
 echo "|   mit   p   die Partitionierung überprüfen! Es sollten 512MB-EFI + SWAP + Linux-Filesystem vorhanden sein   |"
 echo "|   Partitionstabelle schreiben:   w   y   Enter   |"
 echo ""
-echo "Danach weiter mit   fdisk -l   sh ./arch-install-2.sh"
+echo "Danach weiter mit   sh ./install-step-2.sh"
 
 curl https://raw.githubusercontent.com/StrongBeginner0815/arch-install/main/install-step-2.sh > install-step-2.sh
 
