@@ -6,6 +6,7 @@
 
 echo "Schritt 2.1 - Partitionen formatieren: #########################################################################"
 
+fdisk -l
 echo "Bitte EFI-Partitions-Pfad eingeben, z.B.    /dev/nvme0n1p1   :"
 read efi_partname
 echo "Bitte SWAP-Partitions-Pfad eingeben, z.B.    /dev/nvme0n1p2   :"
