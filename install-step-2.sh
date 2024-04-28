@@ -34,13 +34,16 @@ echo $(swapon -L SWAP)
 
 echo "Schritt 2.3 - Basispakete installieren... ########################################################################"
 
-pacstrap /mnt base base-devel linux linux-firmware dhcpcd nano
+pacstrap /mnt base base-devel linux linux-firmware nano
 
 # Mithilfe folgenden Befehls schonmal weitere wichtige Pakete installieren:
 # Microcode statt "intel-ucode" bei AMD: "amd-ucode"
 # Für WLAN-Verbindung zusätzlich "iwd"
 echo -e "\n"
-pacman --root /mnt -S intel-ucode --noconfirm #-----------------------------------------------------------------------------------> Fehler: /proc muss gemounted sein!
+pacman --root /mnt -S intel-ucode networkmanager xfce4 xfce4-goodies xorg-xdm xorg-server xorg-xinit --noconfirm #-----------------------------------------------------------------------------------> Fehler: /proc muss gemounted sein!
+
+echo "Lightdm aktivieren"
+systemctl enable lightdm.service
 
 
 echo "Schritt 2.4 - fstab (File System Table) Datei erzeugen auf Grundlage der aktuellen Einbindungen & folgend prüfen: #"
@@ -62,7 +65,7 @@ curl https://raw.githubusercontent.com/StrongBeginner0815/arch-install/main/inst
 chmod 777 /mnt/install-step-3.sh
 
 echo "Schritt 3.1 - chroot (change root) in die Mount-Partition zum Anpassen fehlender Konfigurationen: ###############"
-arch-chroot /mnt install-step-3.sh
+arch-chroot /mnt ./install-step-3.sh
 
 echo "Aus der chroot-Umgebung austreten & gemountete Partitionen unmounten... Warte auf ein ENTER..."
 read user_input
