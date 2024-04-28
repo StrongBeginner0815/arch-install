@@ -38,6 +38,9 @@ echo $passwd_choice | passwd root -s
 echo "GRUB installieren (es gibt Alternativen!); os-prober sorgt dafür, dass andere BS automatisch eingerichtet werden..."
 pacman -S os-prober grub efibootmgr --noconfirm
 
+echo "NetworkManager aktivieren"
+systemctl enable NetworkManager.service
+
 echo "UEFI-Einträge einrichten (für BIOS siehe https://wiki.archlinux.de/title/Grub#Installation)..."
 echo $(grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id="ARSCH - Mein Gans persönlicher GRUB-Bootloader")
 echo $(grub-mkconfig -o /boot/grub/grub.cfg)
