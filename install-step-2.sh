@@ -59,6 +59,7 @@ fi
 
 echo "Download installation-script-step 3..."
 curl https://raw.githubusercontent.com/StrongBeginner0815/arch-install/main/install-step-3.sh > /mnt/install-step-3.sh
+chmod 777 /mnt/install-step-3.sh
 
 echo "Schritt 3.1 - chroot (change root) in die Mount-Partition zum Anpassen fehlender Konfigurationen: ###############"
 arch-chroot /mnt install-step-3.sh
