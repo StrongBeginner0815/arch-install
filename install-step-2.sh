@@ -57,6 +57,9 @@ chmod 777 /mnt/install-step-3.sh
 echo "Schritt 3.1 - chroot (change root) in die Mount-Partition zum Anpassen fehlender Konfigurationen: ###############"
 arch-chroot /mnt ./install-step-3.sh
 
+echo "Jetzt wird wieder Schritt 2 .sh ausgeführt. Folgendes ist die Antwort des ls-Befehls:"
+ls
+
 echo "Aus der chroot-Umgebung austreten & gemountete Partitionen unmounten... Warte auf ein ENTER..."
 read user_input
 
