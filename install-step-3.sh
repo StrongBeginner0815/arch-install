@@ -41,7 +41,7 @@ echo "GRUB + DisplayManager + DesktopEnvironment + GPUbase_driver + Tools instal
 # Mithilfe folgenden Befehls schonmal weitere wichtige Pakete installieren:
 # Microcode statt "intel-ucode" bei AMD: "amd-ucode"
 # Für WLAN-Verbindung zusätzlich "iwd"
-pacman -S os-prober grub efibootmgr posix intel-ucode networkmanager xfce4 xfce4-goodies xorg-xdm xorg-server cups cups-pdf xf86-video-vesa --noconfirm
+pacman -S os-prober grub efibootmgr posix xfce4 xfce4-goodies xorg-xdm xorg-server cups cups-pdf xf86-video-vesa --noconfirm
 #-----------------------------------------------------------------------------------> Fehler: /proc muss gemounted sein!
 
 echo "Sind wir wirklich im chroot? Folgendes ist die Antwort des ls-Befehls (-> welche sh-Dateien sind vorhanden?):"
