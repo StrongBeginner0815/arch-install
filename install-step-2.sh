@@ -34,39 +34,34 @@ echo $(swapon -L SWAP)
 
 echo "Schritt 2.3 - Basispakete installieren... ########################################################################"
 
-pacstrap /mnt base base-devel linux linux-firmware nano
+pacstrap /mnt base base-devel linux linux-firmware nano intel-ucode networkmanager
+
 
 echo "Schritt 2.4 - fstab (File System Table) Datei erzeugen auf Grundlage der aktuellen Einbindungen & folgend prüfen: #"
 
-echo $(genfstab -U /mnt > /mnt/etc/fstab)
-cat /mnt/etc/fstab
-echo "--- Ist die fstab okay? [0/1]"
+genfstab -U /mnt > /mnt/etc/fstab
 
-read fstab_okay
-if [ $fstab_okay ]
-	then
-		echo "Alles klar! Weiter gehts..."
-	else
-		echo "fstab nicht okay?! Abbruch! Bitte Fehler beheben und dann weitermachen mit   sh ./arch-install-3.sh   ." && exit 1
-fi
 
 echo "Download installation-script-step 3..."
 curl https://raw.githubusercontent.com/StrongBeginner0815/arch-install/main/install-step-3.sh > /mnt/install-step-3.sh
 chmod 777 /mnt/install-step-3.sh
 
-echo "Schritt 3.1 - chroot (change root) in die Mount-Partition zum Anpassen fehlender Konfigurationen: ###############"
+echo "Schritt 3.1 - chroot (change root) & Aufruf des 3. Installationsscriptes: #########################################"
 arch-chroot /mnt ./install-step-3.sh
 
-echo "Jetzt wird wieder Schritt 2 .sh ausgeführt. Folgendes ist die Antwort des ls-Befehls:"
+echo "3. Installationsscript wurde beendet. Folgende Dateien befinden sich im aktuellen Ordner:"
 ls
 
-echo "Aus der chroot-Umgebung austreten & gemountete Partitionen unmounten... Warte auf ein ENTER..."
+
+echo "Gemountete Partitionen unmounten... Warte auf ein ENTER..."
 read user_input
 
-exit
 umount /mnt/boot
 umount /mnt
 
-echo "FERTIG! Das System sollte jetzt mit dem Befehl   reboot   neugestartet werden."
+
+echo "Schritt x.x - FERTIG! Das System neustarten... #####################################################################"
+echo "############################################## Abbruch mit Strg. + C ###############################################"
+echo "####################################################################################################################"
 
 exit 0
