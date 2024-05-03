@@ -9,6 +9,9 @@ echo "Schritt 1.1 - Tastaturlayout auf Deutsch stellen: ########################
 loadkeys de-latin1
 
 
+curl https://raw.githubusercontent.com/StrongBeginner0815/arch-install/main/install-step-2.sh > install-step-2.sh
+
+
 echo "Schritt 1.2 - Festplatte partitionieren: #######################################################################"
 echo "Neuinstallation von UEFI-System: (Für BIOS siehe fdisk! (https://wiki.archlinux.de/title/Gdisk))"
 echo "|   Festplatte löschen:   fdisk -l   gdisk   DISK   Enter   o   y   Enter   |"
@@ -19,7 +22,5 @@ echo "|   mit   p   die Partitionierung überprüfen! Es sollten 512MB-EFI + SWA
 echo "|   Partitionstabelle schreiben:   w   y   Enter   |"
 echo ""
 echo "Danach weiter mit   sh ./install-step-2.sh"
-
-curl https://raw.githubusercontent.com/StrongBeginner0815/arch-install/main/install-step-2.sh > install-step-2.sh
 
 exit 0
