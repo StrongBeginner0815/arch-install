@@ -31,6 +31,8 @@ echo $(mkdir /mnt/boot)
 echo $(mount -L BOOT /mnt/boot)
 echo $(swapon -L SWAP)
 
+echo "weiter?"
+read userinput
 
 echo "Schritt 2.3 - Basispakete installieren... ########################################################################"
 
