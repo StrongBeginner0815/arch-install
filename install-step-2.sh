@@ -49,7 +49,7 @@ curl https://raw.githubusercontent.com/StrongBeginner0815/arch-install/main/inst
 chmod 777 /mnt/install-step-3.sh
 
 echo "Schritt 3.1 - chroot (change root) & Aufruf des 3. Installationsscriptes: #########################################"
-arch-chroot /mnt /mnt/install-step-3.sh
+arch-chroot /mnt sh /install-step-3.sh
 
 echo "3. Installationsscript wurde beendet. Folgende Dateien befinden sich im aktuellen Ordner:"
 ls
